@@ -1,0 +1,30 @@
+{
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "extensions.ignoreRecommendations": true,
+          "redhat.telemetry.enabled": false,
+          "telemetry.telemetryLevel": "off",
+          "terminal.integrated.scrollback": 10000
+        },
+        "extensions": [
+          "hashicorp.hcl",
+          "hashicorp.terraform",
+          "ms-python.python",
+          "ms-vscode.makefile-tools",
+          "redhat.ansible",
+          "redhat.vscode-yaml"
+        ]
+      }
+    },
+    "mounts": [
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/dev/.aws,type=bind,consistency=cached",
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind,consistency=cached",
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.terraform.d,target=/home/dev/.terraform.d,type=bind,consistency=cached"
+    ],
+    "remoteUser": "dev"
+  }
+  
